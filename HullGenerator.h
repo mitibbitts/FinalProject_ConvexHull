@@ -2,6 +2,7 @@
 #include"stdio.h"
 #include"stdlib.h"
 #include"time.h"
+#include"node.h"
 #include<utility>
 #include<cstdlib>
 #include<iostream>
@@ -17,7 +18,7 @@ class HullGenerator{
 		std::vector<double> indices;
 	public:
 		HullGenerator();
-		void generateOutput();
+		void generateOutput(std::vector<Node>& pointsList);
 		int determineLowest();
 		int determineClose(int index);
 		void computeConvex(std::vector<int> indices);
