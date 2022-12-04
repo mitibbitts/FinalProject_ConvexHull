@@ -15,7 +15,8 @@ public:
     int getX();
     int getY();
     int getPath();
-    Node getNext();
+    Node* getNext();
+    void setNext(Node* next);
 
     friend class HullGenerator;
 };
