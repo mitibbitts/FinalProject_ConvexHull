@@ -4,17 +4,18 @@ class Node {
 private:
     int x;
     int y;
-    int type = 0; //0 = center, 1 = edge;
+    int path; //empty unless next != nullptr, will store index of pointed node
     Node* next;
 public:
     Node();
     Node(int x, int y);
-    Node(int x, int y, int type);
+    void setEdge(int edge);
     void setEdge();
     void setCenter();
     int getX();
     int getY();
-    int getType();
+    int getPath();
+    Node getNext();
 
     friend class HullGenerator;
 };
