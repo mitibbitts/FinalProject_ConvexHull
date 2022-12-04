@@ -2,6 +2,7 @@
 #include"stdio.h"
 #include"stdlib.h"
 #include"time.h"
+#include"node.h"
 #include<utility>
 #include<cstdlib>
 #include<iostream>
@@ -26,7 +27,7 @@
 HullGenerator::HullGenerator(){
 }
 
-void HullGenerator::generateOutput(){
+void HullGenerator::generateOutput(std::vector<Node>& pointsList){
 	int lowest;
 	int lowIndex;
 	int closeIndex;
@@ -42,7 +43,7 @@ void HullGenerator::generateOutput(){
 
 		sf::RectangleShape rectangle;
 		rectangle.setSize(sf::Vector2f(20,20));
-		rectangle.setPosition(sf::Vector2f(rand() %1000, rand() % 1000));
+		rectangle.setPosition(sf::Vector2f(pointsList[count2].getX() % 1000, pointsList[count2].getY % 1000));
 		
 		//The value in this conditional statement will determine the number of squares which are drawn
 		if(count < 12){
