@@ -28,7 +28,20 @@ void readFile(std::vector<Node>& pointList, std::string& fileName) {
 }
 
 //output file as a .dot
-
+void exportFile(std::vector<Node>& pointList, std::string& fileName) {
+    std::ofstream outFile(fileName);
+    outFile << "{\n";
+    for (int i = 0; i < pointList.size(); i++) {
+        outFile << "\t" << i;
+        if (!(pointList[i].getNext() == nullptr)) {
+            outFile << " -> " << pointList[i].getPath() << std::endl;
+        }
+        else {
+            outFile << std::endl;
+        }
+    }
+    outFile << "\n}"
+}
 
 int main() {
 
@@ -38,7 +51,7 @@ int main() {
     readFile(points, file);
 
     HullGenerator hull;
-    hull.generateOutput();
+    hull.generateOutput(points);
 
 
 	return 0;
