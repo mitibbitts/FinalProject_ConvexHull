@@ -45,6 +45,10 @@ void exportFile(std::vector<Node>& pointList, std::string& fileName) {
 
 int main() {
 
+	//when polar angles are found:
+	//using the vector find the current node and the node that is pathed to:
+	//  points[current].setNext(&points[pathed])
+	
     std::string file;
     std::cin >> file;
     std::vector<Node> points;
