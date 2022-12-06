@@ -277,5 +277,5 @@ int HullGenerator::nextToTop(std::stack<int> opStack){
 }
 
 void HullGenerator::setFP(std::vector<int> FP){
-	this->filePoint = FP;
+	this->filePoints = FP;
 }
