@@ -237,6 +237,7 @@ std::vector<int> HullGenerator::sortByPolarAngle(int index){
 //this function actually computes which points are in the convex hull via the graham scan algorithm
 void HullGenerator::grahamScan(sf::Clock cl, std::vector<Node>& pointsList){
 	int anchorIndex = determineLowest();
+	int listIndex = anchorIndex;
 	std::vector<int> sortedData = sortByPolarAngle(anchorIndex);
 	int tmp;
 
@@ -266,6 +267,8 @@ void HullGenerator::grahamScan(sf::Clock cl, std::vector<Node>& pointsList){
 		while(hull.size()>1 && isLeftTurn(sortedData[i],nextToTop(hull), hull/top())==1){
 			//tmp = hull.top();
 			points[hull.top()].setFillColor(sf::Color::Red);
+			pointsList[listIndex].setNext(hull.top();
+			listIndex = hull.top();
 			hull.pop();
 			//hull.pop();
 			points[hull.top()].setFillColor(sf::Color::Red);
