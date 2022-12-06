@@ -34,13 +34,11 @@ void exportFile(std::vector<Node>& pointList, std::string& fileName) {
     for (int i = 0; i < pointList.size(); i++) {
         outFile << "\t" << i;
         if (!(pointList[i].getNext() == nullptr)) {
-            outFile << " -> " << pointList[i].getPath() << std::endl;
+            outFile << " -> " << pointList[i].getPath();
         }
-        else {
-            outFile << std::endl;
-        }
+        outFile << " xCoord: " << pointsList[i].getX() << " yCoord: " << pointsList[i].getY() << std::endl;
     }
-    outFile << "\n}"
+    outFile << "\n}";
 }
 
 int main() {
