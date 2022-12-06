@@ -225,10 +225,7 @@ std::vector<int> HullGenerator::sortByPolarAngle(int index){
 		angles.push_back(polarAngle);
 	}
 	std::iota(indices.begin(), indices.end(), 0);
-	std::sort(indices.begin(), indices.end(), 
-		   [&](double A, double B) -> bool {
-			   return angles[A] > angles[B];
-			});
+	std::sort(indices.begin(), indices.end(), [&](double A, double B) -> bool {return angles[A] > angles[B];});
 
 	for(int i  = 0; i<indices.size(); i++){
 		//std::cout << indices[i] << "   " << angles[indices[i]]<< std::endl;
@@ -281,9 +278,6 @@ void HullGenerator::grahamScan(sf::Clock cl, std::vector<Node>& pointsList){
 		points[hull.top()].setFillColor(sf::Color::Green);
 		hull.pop();
 	}
-
-
-
 
 }
 
