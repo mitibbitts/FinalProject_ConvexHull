@@ -2,6 +2,7 @@
 #include"stdio.h"
 #include"stdlib.h"
 #include"time.h"
+#include"node.h"
 #include<utility>
 #include<cstdlib>
 #include<iostream>
@@ -23,6 +24,7 @@
 //      ./sfml-app
 //
 //      
+//
 //
 HullGenerator::HullGenerator(){
 }
