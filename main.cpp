@@ -29,7 +29,7 @@ void readFile(std::vector<Node>& pointList, std::string& fileName) {
 
 //output file as a .dot
 void exportFile(std::vector<Node>& pointList, std::string& fileName) {
-    std::ofstream outFile(fileName);
+    std::ofstream outFile(fileName + "_convexHull.dot");
     outFile << "{\n";
     for (int i = 0; i < pointList.size(); i++) {
         outFile << "\t" << i;
@@ -54,6 +54,7 @@ int main() {
 
     HullGenerator hull;
     hull.generateOutput(points);
+    exportFile(points, file);
 
 
 	return 0;
