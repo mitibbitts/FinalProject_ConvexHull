@@ -18,7 +18,7 @@ class HullGenerator{
 		std::vector<double> indices;
 	public:
 		HullGenerator();
-		void generateOutput(std::vector<Node>& pointsList);
+		void generateOutput();
 		int determineLowest();
 		int determineClose(int index);
 		void computeConvex(std::vector<int> indices);
