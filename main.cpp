@@ -57,7 +57,7 @@ int main() {
     exportFile(points, file);
 
 
-	return 0;
+    return 0;
 }
 
 
