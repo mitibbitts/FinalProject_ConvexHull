@@ -55,7 +55,8 @@ int main() {
     readFile(points, file);
 
     HullGenerator hull;
-    hull.generateOutput(points);
+    hull.setFP(points);
+    hull.generateOutput();
 
 
 	return 0;
