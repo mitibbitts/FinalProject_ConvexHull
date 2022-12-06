@@ -267,8 +267,6 @@ void HullGenerator::grahamScan(sf::Clock cl, std::vector<Node>& pointsList){
 		while(hull.size()>1 && isLeftTurn(sortedData[i],nextToTop(hull), hull/top())==1){
 			//tmp = hull.top();
 			points[hull.top()].setFillColor(sf::Color::Red);
-			pointsList[listIndex].setNext(hull.top();
-			listIndex = hull.top();
 			hull.pop();
 			//hull.pop();
 			points[hull.top()].setFillColor(sf::Color::Red);
@@ -279,6 +277,8 @@ void HullGenerator::grahamScan(sf::Clock cl, std::vector<Node>& pointsList){
 
 	while(!hull.empty()){
 		points[hull.top()].setFillColor(sf::Color::Green);
+		pointsList[listIndex].setNext(hull.top();
+		listIndex = hull.top();
 		hull.pop();
 	}
 
