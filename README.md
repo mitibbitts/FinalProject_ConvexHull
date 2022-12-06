@@ -26,7 +26,6 @@ Inputs:
 Outputs:
 
 - Dot file
-
 - SFML display
 
 
