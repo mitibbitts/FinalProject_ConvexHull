@@ -12,6 +12,7 @@
 #include<stack>
 #include<algorithm>
 #include<numeric>
+#include"unistd.h"
 
 //      read this first: In order to get this to function, you will need to get SFML downloaded
 //      then the application should be able to be run in the commandline with the following commands:
@@ -39,12 +40,13 @@ void HullGenerator::generateOutput(std::vector<Node>& pointsList){
 	window.setPosition(sf::Vector2i(10, 50));
 
 	srand(time(NULL));
+	sf::Clock cl;
 
 	while(window.isOpen()){
 
 		sf::RectangleShape rectangle;
 		rectangle.setSize(sf::Vector2f(20,20));
-		rectangle.setPosition(sf::Vector2f(pointsList[count2].getX() % 1000, pointsList[count2].getY % 1000));
+		rectangle.setPosition(sf::Vector2f(pointsList[count2].getX() % 800, pointsList[count2].getY % 800));
 		
 		//The value in this conditional statement will determine the number of squares which are drawn
 		if(count < 12){
@@ -68,7 +70,7 @@ void HullGenerator::generateOutput(std::vector<Node>& pointsList){
 		if(points.size() == count){
 			
 
-			grahamScan();
+			grahamScan(cl, pointsList);
 
 
 		}
@@ -124,6 +126,15 @@ int HullGenerator::determineClose(int index){
 		}
 	}
 	return newIndex;
+
+}
+
+int HullGenerator::distance(int origin, int index){
+	int distance;
+	sf::Vector2f originPos = points[origin].getPosition();
+	sf::Vector2f pointPos = points[index].getPosition();
+	distance = std::sqrt(std::pow(pointPos.x-originPos.x,2)+std::pow(pointPos.y-originPos.y,2));
+	return distance;
 
 }
 
@@ -227,21 +238,27 @@ std::vector<int> HullGenerator::sortByPolarAngle(int index){
 }
 
 //this function actually computes which points are in the convex hull via the graham scan algorithm
-void HullGenerator::grahamScan(){
+void HullGenerator::grahamScan(sf::Clock cl, std::vector<Node>& pointsList){
 	int anchorIndex = determineLowest();
 	std::vector<int> sortedData = sortByPolarAngle(anchorIndex);
+	int tmp;
 
-	/**
+	
 	int m = 1;
-	for(int i = 1; i < points.size(); i++){
-		while(i < points.size()-1 && isLeftTurn(anchorIndex,sortedData[i],sortedData[i+1]) ==0){
-			i++;
-			
+	for(int i = 0; i < sortedData.size(); i++){
+		if(isLeftTurn(anchorIndex, sortedData[i], sortedData[i+1]) == 0){
+			int dist1 = distance(anchorIndex, sortedData[i]);
+			int dist2 = distance(anchorIndex, sortedData[i+1]);
+			if(dist1 < dist2){
+				sortedData.erase(sortedData.begin()+i);
+			}
+			else if(dist2 < dist1){
+				sortedData.erase(sortedData.begin()+(i+1));
+			}
 		}
-		sortedData[m] = sortedData[i];
-		m++;
 	}
-*/
+	std::cout << sortedData.size();
+	
 	std::stack<int> hull;
 	hull.push(sortedData[0]);
 	hull.push(sortedData[1]);
@@ -249,8 +266,13 @@ void HullGenerator::grahamScan(){
 
 	for(int i = 3; i < sortedData.size(); i++){
 		
-		while(hull.size()>2 && isLeftTurn(sortedData[i-3],sortedData[i-2], sortedData[i-1])==2){
+		while(hull.size()>1 && isLeftTurn(sortedData[i],nextToTop(hull), hull/top())==1){
+			//tmp = hull.top();
+			points[hull.top()].setFillColor(sf::Color::Red);
 			hull.pop();
+			//hull.pop();
+			points[hull.top()].setFillColor(sf::Color::Red);
+			//hull.push(tmp);
 		}
 		hull.push(sortedData[i]);
 	}
