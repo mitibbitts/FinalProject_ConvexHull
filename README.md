@@ -66,4 +66,5 @@ And SFML will be fully usable!
 Now to run the program do:
 
 g++ -c main.cpp
+
 g++ main.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system./sfml-app
