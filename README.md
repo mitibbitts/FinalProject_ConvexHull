@@ -31,6 +31,24 @@ Outputs:
 
 How to compile:
 
-g++ -c main.cpp
+First the user must install SFML
+Installing SFML:
+Step1: Install Git (if not already done so)
+	If git had not been installed add to path
+		C:\Program Files\Git\cmd\
+		C:\Program Files\Git\bin\		
+Step2: Use command:
+	git clone https://github.com/Microsoft/vcpkg.git
+Step3: once installed run:
+	.\vcpkg\bootstrap-vcpkg.bat
+Step4: Add vcpkg to path with the file destination
+Step5: download sfml:
+	Vcpkg install sfml:x86-windows
+Step6: lastly use:
+	vcpkg integrate install
+And SFML will be fully usable!
 
+Now to run the program do:
+
+g++ -c main.cpp
 g++ main.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system./sfml-app
