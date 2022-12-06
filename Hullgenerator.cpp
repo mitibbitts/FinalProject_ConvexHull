@@ -28,7 +28,7 @@
 HullGenerator::HullGenerator(){
 }
 
-void HullGenerator::generateOutput(std::vector<Node> pointsList){
+void HullGenerator::generateOutput(std::vector<Node>& pointsList){
 	int lowest;
 	int lowIndex;
 	int closeIndex;
