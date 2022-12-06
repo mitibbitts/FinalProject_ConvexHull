@@ -20,13 +20,18 @@ Features:
 
 
 Inputs:
+
 - text file
 
 Outputs:
+
 - Dot file
+
 - SFML display
 
 
 How to compile:
+
 g++ -c main.cpp
+
 g++ main.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system./sfml-app
