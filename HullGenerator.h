@@ -11,7 +11,6 @@
 
 class HullGenerator{
 	private:
-		std::vector<int> filePoints;
 		std::vector<sf::RectangleShape> drawCircles();
 		int count = 0;
 		sf::Clock cl;
@@ -19,8 +18,7 @@ class HullGenerator{
 		std::vector<double> indices;
 	public:
 		HullGenerator();
-		void setFP(std::vector<int>& FP);
-		void generateOutput();
+		void generateOutput(std::vector<Node>& pointsList);
 		int determineLowest();
 		int determineClose(int index);
 		void computeConvex(std::vector<int> indices);
