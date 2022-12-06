@@ -48,7 +48,7 @@ int main() {
 	//when polar angles are found:
 	//using the vector find the current node and the node that is pathed to:
 	//  points[current].setNext(&points[pathed])
-	
+	// initializes file name and vector then open text file
     std::string file;
     std::cin >> file;
     std::vector<Node> points;
