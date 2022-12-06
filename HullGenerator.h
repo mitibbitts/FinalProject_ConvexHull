@@ -19,7 +19,7 @@ class HullGenerator{
 		std::vector<double> indices;
 	public:
 		HullGenerator();
-		void setFP(std::vector<int> FP);
+		void setFP(std::vector<int>& FP);
 		void generateOutput();
 		int determineLowest();
 		int determineClose(int index);
