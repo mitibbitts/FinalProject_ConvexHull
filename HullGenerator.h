@@ -25,7 +25,7 @@ class HullGenerator{
 		int isLeftTurn(int index, int newIndex, int newestIndex);
 		double computeDeterminant(int index, int newIndex, int newestIndex);
 		std::vector<int> sortByPolarAngle(int index);
-		void grahamScan(sf::Clock cl);
+		void grahamScan(sf::Clock cl, std::vector<Node>& pointsList);
 		int nextToTop(std::stack<int> opStack);
 		int distance(int origin, int index);
 };
