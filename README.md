@@ -25,7 +25,7 @@ Inputs:
 
 Outputs:
 
-- Dot file
+- Screen shott
 - SFML display
 
 
@@ -67,4 +67,9 @@ Now to run the program do:
 
 g++ -c main.cpp
 
-g++ main.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system./sfml-app
+g++ main.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 
+
+./sfml-app
+
+When in the interface itself, you will begin in drawmode. This mode allows you to draw points and greate your own convex hull. If this becomes uninteresting,
+you can hit the backspace key (may take a couple tries). Then just type the filename of one of the .txt files in this folder WITHOUT the .txt, and the dislplay will begin drawing the convex hull of the selected data set.
