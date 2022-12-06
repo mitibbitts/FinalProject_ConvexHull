@@ -28,7 +28,7 @@
 HullGenerator::HullGenerator(){
 }
 
-void HullGenerator::generateOutput(){
+void HullGenerator::generateOutput(std::vector<Node> pointsList){
 	int lowest;
 	int lowIndex;
 	int closeIndex;
@@ -274,10 +274,4 @@ int HullGenerator::nextToTop(std::stack<int> opStack){
 	int output = opStack.top();
 	opStack.push(point);
 	return output;
-}
-
-void HullGenerator::setFP(std::vector<int>& FP){
-	for (int i = 0; i < FP.size(); i++){
-		this->filePoints.push_back(FP[i]);
-	}
 }
